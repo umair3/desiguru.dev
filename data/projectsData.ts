@@ -28,9 +28,13 @@ const projectsData = [
     description: `The Quiske App + pod visualizes your performance. The analyzed data is available immediately to visualize your stroke and help make the next one better. Instant feedback enables fast learning. Effortless measurement makes it possible to track performance in every rowing session. Bring confidence to your coaching by getting concrete facts on rowing technique.`,
     imgSrc: '/static/images/quiske.png',
     href: 'https://www.rowingperformance.com/',
+  },
+  {
+    title: 'OTT Video Delivery Platform',
+    description: `Technology gurus with passion to serve our customers! JadooTV is a consumer technology and services company based in Silicon Valley, committed to delivering Live and On-Demand content to viewers via its proprietary Internet based set-top box (STB). JadooTV is the leading distributor of Internet based South Asian & Multicultural content, bringing Television, Movies, Music and more to diaspora from India, Pakistan, Bangladesh, Afghanistan and Middle East.`,
+    imgSrc: '/static/images/jadootv.png',
+    href: 'https://jadootv.com/',
   }
-
-
 ]
 
 export default projectsData
