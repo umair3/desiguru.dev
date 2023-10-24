@@ -13,9 +13,9 @@ const siteMetadata = {
   mastodon: 'https://mastodon.social/@mastodonuser',
   email: 'xiixiiivi@gmail.com',
   github: 'https://github.com/umair3',
-  twitter: 'https://twitter.com/Twitter',
-  facebook: 'https://facebook.com',
-  youtube: 'https://youtube.com',
+  twitter: 'https://twitter.com/umair3',
+  facebook: 'https://www.facebook.com/UMAIR.ANWAR.IT',
+  youtube: 'https://www.youtube.com/@developershorts',
   linkedin: 'https://www.linkedin.com/in/umair3/',
   locale: 'en-US',
   analytics: {
