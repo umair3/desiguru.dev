@@ -1,0 +1,87 @@
+---
+title: 'Mastering Tar in Linux: Archive and Extract Files'
+date: '2013-07-04'
+tags: ['linux']
+draft: false
+summary: Tar is a powerful tool for managing files and directories in Linux, and these commands should cover most of your archiving and extraction needs......
+---
+
+# Tar
+
+_Title_: Archive and Extract Files using Tar
+
+_Author_: Umair Anwar
+
+_Subject_: Linux
+
+_Language_: English
+
+_Source_: [PHP I Did, Blogspot](https://phpidid.blogspot.com/2013/07/extract-tar-unbuntulinux-terminal.html)
+
+
+Tar (short for "tape archive") is a command-line utility in Linux and Unix-like operating systems used to archive and compress files and directories. It's a versatile tool that's essential for many administrative tasks, backups, and software distribution. In this post, I will cover the most common tar commands and demonstrate how to extract a .tar file in an Ubuntu or Linux terminal.
+
+## Tar Commands
+1. Creating a Tar Archive:
+To create a new tar archive, you can use the tar command followed by the -cf (create file) option and specify the archive file name and the list of files or directories you want to archive.
+```
+tar -cf archive.tar file1 file2 directory/
+```
+For example, to create an archive of all files and directories in the "myfolder" directory, you can use:
+```
+tar -cf myarchive.tar myfolder/
+```
+
+2. Creating a Compressed Tar Archive:
+You can also create a compressed tar archive by combining tar with compression utilities like gzip or bzip2. The -z option is used with tar to create a gzip-compressed archive, and the -j option is used to create a bzip2-compressed archive.
+For gzip compression:
+```
+tar -czf archive.tar.gz file1 file2 directory/
+```
+For bzip2 compression:
+```
+tar -cjf archive.tar.bz2 file1 file2 directory/
+```
+
+3. Listing Contents of a Tar Archive:
+To list the contents of a tar archive, you can use the -tf option:
+```
+tar -tf archive.tar
+```
+This command will display the files and directories included in the archive.
+
+4. Extracting Files from a Tar Archive:
+To extract files from a tar archive, use the -x option, followed by the -f option specifying the archive file:
+```
+tar -xf archive.tars
+```
+This will extract the contents of the archive into the current directory.
+
+5. Extracting Files with Verbosity:
+You can use the -v option to enable verbose mode when extracting files. This will display a list of files as they are extracted:
+```
+tar -xvf archive.tar
+```
+
+6. Extracting a Specific File from a Tar Archive:
+If you want to extract a specific file from the archive, you can specify the file's path within the archive:
+```
+tar -xf archive.tar path/to/file.txt
+```
+
+7. Extracting to a Different Directory:
+By default, tar extracts files to the current directory. To extract them to a different directory, use the -C option:
+```
+tar -xf archive.tar -C /path/to/destination/
+```
+
+8. Extracting and Preserving Permissions:
+To preserve file permissions while extracting, use the --preserve-permissions or -p option:
+```
+tar -xpf archive.tar
+```
+
+9. Extracting a Compressed Tar Archive:
+When extracting from a compressed archive, you can use the same extraction commands as shown earlier. The -z and -j options for gzip and bzip2 archives are not required when extracting; tar will automatically detect the compression method used.
+
+Tar is a powerful tool for managing files and directories in Linux, and these commands should cover most of your archiving and extraction needs.
