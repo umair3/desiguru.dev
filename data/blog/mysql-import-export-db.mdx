@@ -1,0 +1,47 @@
+---
+title: 'Import / Export MySQL Database'
+date: '2013-06-18'
+tags: ['linux', 'windows']
+draft: false
+summary: MySQL is a popular relational database management system used to store and manage data. In this guide, we'll walk you through the process of importing and exporting a MySQL database using the command line.....
+---
+
+# Import / Export MySQL Database
+
+_Title_: Import / Export MySQL Database
+
+_Author_: Umair Anwar
+
+_Subject_: Linux
+
+_Language_: English
+
+_Source_: [PHP I Did, Blogspot](https://phpidid.blogspot.com/2013/06/import-export-mysql-database-using.html)
+
+
+## Importing a MySQL Database
+To import a MySQL database from a .sql file, follow these steps:
+1. Open your Ubuntu terminal.
+2. Use the following command to import the .sql file into your MySQL database. Replace mysql_user, database_name, and /path/import_file_name.sql with your actual MySQL username, database name, and the path to your .sql file:
+```
+mysql -u mysql_user -p database_name < /path/import_file_name.sql
+```
+After executing the command, you will be prompted to enter your MySQL password. Once you enter the correct password, the SQL script in the .sql file will be executed, populating your MySQL database.
+
+## Exporting a MySQL Database
+To export a MySQL database and gzip the backup, use the following command. This is useful for creating compressed backups of your database:
+```
+mysqldump -h localhost -u mysql_user -pMysql_password database_name | gzip > /path/export_file_name_$(date +%m-%d-%Y).sql.gz
+```
+Here's what each part of the command does:
+* mysqldump: This command is used to create a backup of your MySQL database.
+* -h localhost: Specifies the hostname where your MySQL server is running. In most cases, you can use localhost.
+* -u mysql_user: Replace mysql_user with your MySQL username.
+* -pMysql_password: Replace Mysql_password with your MySQL password. Make sure there is no space between -p and your password.
+* database_name: Replace database_name with the name of the database you want to export.
+* | gzip: This part of the command pipes the output of mysqldump to the gzip command, which compresses the backup.
+* `> /path/export_file_name_$(date +%m-%d-%Y).sql.gz`: Specifies the path and filename for the compressed backup. The $(date +%m-%d-%Y) portion inserts the current date in the format mm-dd-yyyy into the filename. You can remove this if you don't need the date in the filename.
+
+After executing this command, you'll be prompted to enter your MySQL password. Once entered correctly, the database will be exported and compressed, and the resulting file will be saved at the specified path.
+
+With these commands, you can easily import and export MySQL databases using the Ubuntu terminal. This is a valuable skill for managing your MySQL databases efficiently and ensuring data integrity.
