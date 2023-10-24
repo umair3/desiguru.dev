@@ -3,7 +3,7 @@ const siteMetadata = {
   title: 'desiguru.dev',
   author: 'Umair Anwar',
   headerTitle: 'desiguru.dev',
-  description: 'Purpose Driven Learning',
+  description: 'Purpose driven learning.',
   language: 'en-us',
   theme: 'system', // system, dark or light
   siteUrl: 'https://desiguru-dev.vercel.app',
