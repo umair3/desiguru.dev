@@ -1,0 +1,60 @@
+---
+title: 'Monitoring Memory Usage in Linux with egrep'
+date: '2013-07-07'
+tags: ['linux']
+draft: false
+summary: Monitoring your system's memory usage is a critical task for anyone responsible for maintaining a Linux server or a personal computer. One powerful and efficient way to do this is by using the egrep command to extract essential memory information from the /proc/meminfo file. In this post, I will walk you through how to use egrep to monitor memory usage in Linuxs....
+---
+
+# egrep 'Mem|Cache|Swap' /proc/meminfo
+
+_Title_: Monitoring Memory Usage in Linux with egrep from /proc/meminfo
+
+_Author_: Umair Anwar
+
+_Subject_: Linux
+
+_Language_: English
+
+_Source_: [PHP I Did, Blogspot](https://phpidid.blogspot.com/2013/06/check-memory-ubuntu-terminal.html)
+
+Monitoring your system's memory usage is a critical task for anyone responsible for maintaining a Linux server or a personal computer. One powerful and efficient way to do this is by using the egrep command to extract essential memory information from the /proc/meminfo file. In this post, we will walk you through how to use egrep to monitor memory usage in Linux.
+
+## Understanding /proc/meminfo
+The /proc/meminfo file is a virtual file provided by the Linux kernel that contains detailed information about your system's memory usage. This file can be accessed with a simple text editor, but it's more valuable when processed with commands like egrep to extract specific data.
+
+## Using egrep to Monitor Memory Usage
+To use egrep to monitor memory usage, open your terminal and enter the following command:
+```
+egrep --color 'Mem|Cache|Swap' /proc/meminfo
+```
+
+Here's what this command does:
+
+egrep: This is a command for searching and printing lines that match a specified pattern.
+* --color: This option highlights the matched text in color for better visibility.
+* 'Mem|Cache|Swap': This is the regular expression pattern you are searching for. It looks for lines that contain "Mem," "Cache," or "Swap." These are important memory-related indicators.
+* /proc/meminfo: This is the file you are searching within.
+
+After running the command, you'll see an output with color highlighting that provides key information about your system's memory usage. The output may look something like this:
+```
+MemTotal:        8167420 kB
+MemFree:          167312 kB
+MemAvailable:    5625464 kB
+Cached:          4794256 kB
+SwapCached:            0 kB
+SwapTotal:             0 kB
+SwapFree:              0 kB
+```
+
+Let's briefly explain what each of these lines represents:
+
+* MemTotal: The total physical RAM in kilobytes.
+* MemFree: The amount of physical RAM, in kilobytes, that is currently unused.
+* Cached: The amount of physical RAM, in kilobytes, used as file system cache.
+* SwapTotal: The total swap space in kilobytes.
+* SwapFree: The amount of swap space in kilobytes that is currently unused.
+
+By running this egrep command, you can quickly get an overview of your system's memory usage, including the total memory, free memory, cached memory, swap space, and free swap space.
+
+This simple yet powerful command is a valuable tool for monitoring memory usage and can be used in scripts and monitoring solutions to keep an eye on your system's health. Understanding and managing your system's memory is essential for maintaining performance and stability, making egrep an indispensable tool for any Linux user.
