@@ -1,0 +1,67 @@
+---
+title: 'Mastering Wget: A Comprehensive Guide with Command Examples'
+date: '2013-05-28'
+tags: ['linux']
+draft: false
+summary: Have you ever tried to open a file with '.gz' at the end and got confused? Well, don't worry, we're here to help! We'll show you the easy way to unzip those files with 'gzip -d.' It's like magic - you'll love it! Let's start!...
+---
+
+# wget url
+
+_Title_: Using wget with command examples.
+
+_Author_: Umair Anwar
+
+_Subject_: Linux
+
+_Language_: English
+
+_Source_: [PHP I Did, Blogspot](https://phpidid.blogspot.com/2013/05/download-file-using-terminal-in-linux.html)
+
+## Introduction:
+Wget (short for "Web Get") is a powerful and versatile command-line utility used for downloading files from the internet. It is available on Unix-like operating systems, including Linux and macOS. In this comprehensive guide, we'll explore the many features of Wget and provide a range of command examples to help you become a Wget expert.
+
+## Installation:
+If Wget is not already installed on your system, you can typically install it using your system's package manager. For example, on Debian-based systems like Ubuntu, you can use apt:
+```
+sudo apt-get install wget
+```
+On Red Hat-based systems like CentOS, you can use yum:
+```
+sudo yum install wget
+```
+
+## Basic Usage:
+The most basic usage of Wget is to download a file from the web. To do this, simply provide the URL of the file you want to download:
+```
+wget https://desiguru.dev/
+```
+For example, to download a sample text file, you can use:
+wget https://desiguru.dev/sample.txt
+
+## Saving Downloads:
+By default, Wget saves downloaded files to the current directory with the same filename as the source. You can specify a different filename using the -O flag:
+```
+wget -O output-file.txt [URL]
+```
+
+## Recursive Download:
+Wget can recursively download an entire website. This is useful for creating local copies of websites. Use the -r flag to enable recursive downloading:
+```
+wget -r [URL]
+```
+
+## Limiting Download Depth:
+You can limit the depth of recursive downloads with the -l flag. For example, to download only two levels deep, use:
+```
+wget -r -l 2 [URL]
+```
+
+## Downloading in the Background:
+To run Wget in the background and continue using your terminal, you can use the -b flag:
+```
+wget -b [URL]
+```
+
+## Resuming an Interrupted Download:
+Wget supports resuming interrupted downloads using the -c flag. If a download is interrupted, you can continue it like this:
