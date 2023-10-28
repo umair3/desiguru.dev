@@ -1,0 +1,225 @@
+---
+title: 'Docker Cheatsheet'
+date: '2023-10-28'
+tags: ['docker']
+draft: false
+summary: Explore docker basics, container management, container lifecycle, managing images, docker-compose and cleanup.
+---
+
+# Docker
+
+_Title_: Docker Cheatsheet
+
+_Author_: Umair Anwar
+
+_Subject_: Docker
+
+_Language_: English
+
+_Source_: [Docker Documentation](https://docs.docker.com/)
+
+Explore docker basics, container management, container lifecycle, managing images, docker-compose and cleanup.
+
+## Docker Basics
+Check docker version
+```
+docker --version or docker -v
+```
+
+Display system-wide information about docker
+```
+docker info
+```
+
+Download an image from docker hub
+```
+docker pull <image-name>
+```
+
+List local docker images
+```
+docker images or docker image ls
+```
+
+List running containers
+```
+docker container ls
+```
+
+List all containers
+```
+docker ps -a or docker container ls -a
+```
+
+Create and start a new container from an image
+```
+docker run <options> <images-name>
+```
+
+## Container Lifecycle
+Start a stopped container
+```
+docker start <container-name/id>
+```
+
+Stop a running container gracefully.
+```
+docker stop <container-name/id>
+```
+
+Forcefully stop a running container.
+```
+docker kill <container-name/id>
+```
+
+Restart a container
+```
+docker restart <container-name/id>
+```
+
+Remove a stopped container.
+```
+docker rm <container-name/id>
+```
+
+## images
+Build a docker image from a Dockerfile.
+```
+docker build -t <image-name> <path-to-dockerfile>
+```
+
+Remove an image.
+```
+docker rmi <image-name>
+```
+
+Prune to remove unused images.
+```
+docker image prune
+```
+
+## Docker Compose
+Run a docker-compose file.
+```
+docker-compose up
+```
+
+Run a docker-compose file to stop services.
+```
+docker-compose down
+```
+
+List services in a compose file.
+```
+docker-compose ps
+```
+
+View logs for a specific service.
+```
+docker-compose logs <service-name>
+```
+
+Run a command in a running service container.
+```
+docker-compose exec <service-name> <command>
+```
+
+## Volumes
+Create a named volume.
+```
+docker volume create <volume-name>
+```
+
+Mount a volume to a container.
+```
+docker run -v <volume-name>:<container-path>
+```
+
+List Volumes
+```
+docker volume ls
+```
+
+Remove a volume
+```
+docker volume rm <volume-name>
+```
+
+## Docker image registry
+Log in to a Docker registry.
+```
+docker login
+```
+
+Push an image to a registry.
+```
+docker push <image-name>
+```
+
+Pull an image from a registry.
+```
+docker pull <image-name>
+```
+
+## Networks
+Create a user-defined network.
+```
+docker network create <network-name>
+```
+
+List networks.
+```
+docker network ls
+```
+
+Connect a container to a network.
+```
+docker network connect <network-name> <container-name/id>
+```
+
+Disconnect a container from a network.
+```
+docker network disconnect <network-name> <container-name/id>
+```
+
+## Logs and Debugging
+Check container logs.
+```
+docker logs <container-name/id>
+```
+
+Start an interactive shell in a running container.
+```
+docker exec -it <container-name/id> /bin/bash
+```
+
+Display resource usage for a container.
+```
+docker stats <container-name/id>
+```
+
+## Cleanup
+Prune all stepped containers, unused images and networks.
+```
+docker system prune
+```
+
+Remove stoped containers.
+```
+docker container prune
+```
+
+Remove unused images.
+```
+docker images prune
+```
+
+Remove unused volumes.
+```
+docker volume prune
+```
+
+
+
+
+
