@@ -19,8 +19,39 @@ _Language_: English
 _Source_: [Developer.com](https://www.developer.com/java/java-private-interface-methods/)
 
 ## Introduction
+With the introduction of Java 9, one of the notable features added to the Java language is the ability to have private methods in interfaces. These private interface methods allow you to encapsulate and hide certain implementation details within an interface, making your code more modular and maintainable. Let's dive into the concept and see some detailed coding examples.
+
+## What are Private Interface Methods?
+Private interface methods are methods declared within an interface but marked as `private`, which means they are not visible to implementing classes. They are used to encapsulate common code that can be shared among default methods or static methods within the same interface. This can make your code more organized and easier to maintain.
+
 A private method in an interface is only accessible inside the interface only. This in turn means the following;
 1. No class implementing the interface can access the private method.
-2. No interface exteding the interface can access the private method.
+2. No interface extending the interface can access the private method.
 
-The support for private methods was added in JDK 9. 
+```java
+interface MyInterface
+{
+    void publicMethod();
+    private void privateMethod()
+    {
+        // implementation code here...
+    }
+    default void defaultMethod()
+    {
+        // You can call the privateMethod() from within the interface.
+        privateMethod();
+    }
+}
+```
+
+## Benefits of Private Interface Methods
+* Code Reusability: You can encapsulate common code within the interface, reducing redundancy and promoting code reusability.
+* Enhanced Readability: By isolating implementation details in private methods, the interface becomes cleaner and more readable.
+* Easier Maintenance: When you need to change the implementation of a shared piece of code, you only have to do it in one place the private method.
+* Reduced Code Duplication: Avoid duplicating the same code across multiple default methods in the interface.
+
+Private interface methods provide a powerful mechanism for creating more maintainable and modular code in Java interfaces. They allow you to encapsulate implementation details, promote code reusability, and improve the overall structure of your code.
+
+So, the next time you work with Java interfaces and need to share common code among multiple methods, consider using private interface methods to keep your code clean and organized.
+
+Happy Coding!
