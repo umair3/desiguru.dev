@@ -1,0 +1,78 @@
+---
+title: 'Demystifying PostgreSQL UPDATE Queries'
+date: '2023-11-01'
+tags: ['POSTGRESQL']
+draft: false
+summary: Discover the essential components of UPDATE clause with practical examples. Examples include deactivate users, update specific details, apply conditions, or perform bulk updates. Click to view our detailed guide and unlock the potential of the UPDATE statement in PostgreSQL!...
+---
+
+# PostgreSQL UPDATE
+
+_Title_: A comprehensive guide on using UPDATE Clause in PostgreSQL with examples.
+
+_Author_: Umair Anwar
+
+_Subject_: Databases
+
+_Language_: English
+
+_Source_: [PostgreSQL Documentation](https://www.postgresql.org/docs/16/queries-table-expressions.html#QUERIES-WHERE)
+
+The UPDATE statement in PostgreSQL allows you to modify existing records in a database table. It's a powerful tool for managing data, and we'll dive into the essential components of this query while providing a variety of examples.
+
+The Basic Query:
+```SQL
+UPDATE public.auth_user
+SET is_active = false
+WHERE email IN (
+  -- List of email addresses (excluded in this explanation)
+  'user1@test.com',
+  'user2@test.com',
+);
+
+```
+Explanation:
+UPDATE public.auth_user: This part of the query specifies the target table that you want to update. Here, the target table is auth_user, and it's located in the public schema.
+
+SET is_active = false: The SET clause defines the columns that you want to modify and the new values you want to assign to them. In this query, we are setting the is_active column to false. This means we're deactivating certain users in the auth_user table.
+
+WHERE email IN (...): The WHERE clause allows you to specify the condition that records must meet to be updated. In this example, the condition is based on the email column. Rows are updated only if the email value is found in the list you provided.
+
+## Example 1: Deactivating All Users
+Suppose you want to deactivate all users in the auth_user table. You can use the following query:
+```SQL
+UPDATE public.auth_user
+SET is_active = false;
+```
+This query will set the is_active column to false for all users in the table.
+
+## Example 2: Updating Specific User Information
+You can also use the UPDATE query to modify other user details. For instance, if you want to change the username of a user with the email "abc@desiguru.dev", you can use the following query:
+```SQL
+UPDATE public.auth_user
+SET username = 'abc_desi_guru'
+WHERE email = 'abc@desiguru.dev';
+```
+This query will update the username of the user with the specified email.
+
+
+## Example 3: Conditional Update
+In some cases, you may want to update records that meet specific conditions. Let's say you want to set the is_active flag to true for users who registered after a certain date:
+```SQL
+UPDATE public.auth_user
+SET is_active = true
+WHERE registration_date > '2023-11-01';
+```
+This query will activate users who registered after January 1, 2023.
+
+
+## Example 4: Bulk Update
+To update a group of users based on a list of IDs, you can use the IN clause. For example, if you have a list of user IDs that you want to deactivate:
+```SQL
+UPDATE public.auth_user
+SET is_active = false
+WHERE user_id IN (1, 3, 5, 7);
+```
+This query will deactivate users with the specified IDs.
+
+These are just a few examples of how the UPDATE query can be used to manage and modify data in your PostgreSQL database.
