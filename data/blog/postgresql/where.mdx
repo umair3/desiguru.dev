@@ -1,0 +1,76 @@
+---
+title: 'How to use WHERE in PostgreSQL'
+date: '2023-10-31'
+tags: ['POSTGRESQL']
+draft: false
+summary: Unlock the potential of your PostgreSQL database by mastering the art of WHERE queries in pgAdmin 4. From basic filtering to advanced conditions, the WHERE clause is your key to extracting precisely the data you need. We will cover "Basic WHERE filtering", "Comparison and logical operators", "Pattern matching and wildcard use", "IN and NOT IN for filtering by lists", "Handling NULL values" and "Range filtering with BETWEEN". Click below to read the full post and discover how to harness PostgreSQL's filtering capabilities....
+---
+
+# PostgreSQL WHERE
+
+_Title_: A comprehensive guide on using WHERE Clause in PostgreSQL with examples.
+
+_Author_: Umair Anwar
+
+_Subject_: Databases
+
+_Language_: English
+
+_Source_: [PostgreSQL Documentation](https://www.postgresql.org/docs/16/queries-table-expressions.html#QUERIES-WHERE)
+
+In PostgreSQL, the WHERE clause is a fundamental component of SQL queries used to filter and retrieve specific data from a database table. In this post, we'll explore various types of WHERE queries in PostgreSQL using the popular db client, pgAdmin 4.
+
+## Basic WHERE Clause
+The most common use of WHERE is to filter data based on a specific condition. For example, to retrieve all customers with a specific last name, you can use:
+```SQL
+SELECT * FROM customers WHERE last_name='Guru';
+```
+
+## Comparison Operators
+PostgreSQL supports various comparison operators in the WHERE clause. Some examples include:
+* `=` (Equal)
+* `<>` or `!=` (Not Equal)
+* `>` (Greater Than)
+* `<` (Less Than)
+* `>=` (Greater Than or Equal To)
+* `<=` (Less Than or Equal To)
+You can use these operators to filter data based on numeric, text, or date columns.
+
+## Logical Operators
+PostgreSQL also supports logical operators in the WHERE clause. You can combine conditions using AND, OR, and NOT. For example:
+```SQL
+SELECT * FROM courses WHERE title = 'PostgreSQL' AND price < 50;
+```
+
+## Pattern Matching:
+PostgreSQL provides pattern matching using the LIKE operator and wildcard characters % and _. For instance, to find all customers with a last name starting with 'Gur', you can use:
+```SQL
+SELECT * FROM users WHERE last_name LIKE 'Gur%';
+```
+
+## IN and NOT IN
+The IN and NOT IN operators allow you to filter data based on a list of values. For example, to find products in a specific category:
+```SQL
+SELECT * FROM courses WHERE category IN ('Backend', 'Frontend', 'DevOps');
+```
+
+## NULL Values
+To filter records where a specific column is NULL or NOT NULL, you can use the IS NULL and IS NOT NULL conditions. For example:
+```SQL
+SELECT * FROM users WHERE is_staff IS NULL;
+```
+
+## BETWEEN
+The BETWEEN operator is used to filter data within a range of values. For instance, to retrieve upcoming events between two dates:
+```SQL
+SELECT * FROM events WHERE start_date BETWEEN '2023-11-01' AND '2023-12-31';
+```
+
+## SUB-QUERIES
+You can use subqueries in the WHERE clause to filter data based on the result of another query. This is useful for complex filtering conditions. For example:
+```SQL
+SELECT * FROM courses WHERE price > (SELECT AVG(price) FROM courses);
+```
+
+These are just some of the many possibilities when it comes to using the WHERE clause in PostgreSQL. Depending on your specific use case and data, you can craft complex queries to filter and retrieve the information you need from your database.
+
