@@ -1,12 +1,12 @@
 /** @type {import("pliny/config").PlinyConfig } */
 const siteMetadata = {
-  title: 'desiguru.dev',
+  title: 'DesiGuru.Dev',
   author: 'Umair Anwar',
-  headerTitle: 'desiguru.dev',
+  headerTitle: 'DesiGuru.Dev',
   description: 'Purpose driven learning.',
   language: 'en-us',
   theme: 'system', // system, dark or light
-  siteUrl: 'https://desiguru-dev.vercel.app',
+  siteUrl: 'https://desiguru.dev',
   siteRepo: 'https://github.com/umair3/desiguru.dev',
   siteLogo: '/static/images/logo.png',
   socialBanner: '/static/images/twitter-card.png',
