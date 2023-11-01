@@ -3,7 +3,7 @@ title: 'Preparing for a Next.js Interview: Questions and Answers with Code Examp
 date: '2023-11-01'
 tags: ['Next.js']
 draft: false
-summary: Have you ever tried to open a file with '.gz' at the end and got confused? Well, don't worry, we're here to help! We'll show you the easy way to unzip those files with 'gzip -d.' It's like magic - you'll love it! Let's start!...
+summary: In this post, we've explored various aspects of Next.js, a popular framework for building React applications. We've covered the basics of Next.js, its routing mechanisms, API routes, server-side rendering (SSR), and static site generation (SSG), styling options, error handling, and data fetching methods. These topics are essential for anyone preparing for a Next.js interview or looking to build robust React applications with Next.js...
 ---
 
 # Prepare for Next.js Interview
@@ -82,3 +82,42 @@ async function fetchData() {
   return data;
 }
 ```
+
+## Server-side Rendering (SSR) and Static Site Generation (SSG)
+### What's the difference between SSR and SSG in Next.js?
+In SSR, pages are generated on each request, while in SSG, pages are generated at build time and served as static files. SSR is suitable for dynamic content, while SSG is ideal for static or semi-static content that doesn't change frequently.
+
+### How do you implement SSR in a Next.js application?
+To implement SSR, you can create a function called getServerSideProps in a page component. This function runs on the server for each request and can fetch data before rendering the page. Here's an example:
+```typescript
+export async function getServerSideProps(context) {
+  const data = await fetchData();
+  return {
+    props: { data },
+  };
+}
+```
+
+## Styling in Next.js
+### What are the different approaches for styling in Next.js?
+Next.js supports various styling approaches, including:
+1. CSS Modules: Create .module.css files to scope CSS locally to a component.
+2. Styled-components: A popular CSS-in-JS library that allows you to write styles within your components.
+3. Tailwind CSS: A utility-first CSS framework that can be easily integrated with Next.js.
+4. Global CSS: Import global CSS files directly into your pages/_app.js file.
+
+## Error Handling
+### How can you handle errors in a Next.js application?
+You can use Next.js's error handling features to display custom error pages. For example, you can create `404.js` and `500.js` files in the pages directory to customize the error pages for not found and server errors.
+
+
+## Data Fetching
+### What are the methods for data fetching in Next.js?
+Next.js provides the following methods for data fetching:
+* getStaticProps: Used for static site generation (SSG) to fetch data at build time.
+* getServerSideProps: Used for server-side rendering (SSR) to fetch data on each request.
+* getInitialProps: An older method for data fetching, mainly used in legacy projects. Not recommended for new projects.
+
+## Conclusion
+In conclusion, mastering Next.js concepts and best practices is crucial for success in Next.js interviews and for building efficient and performant React applications. Whether you're handling routing, API routes, server-side rendering, styling, error handling, or data fetching, Next.js offers powerful tools and techniques to make your development process more effective and user-friendly.
+
