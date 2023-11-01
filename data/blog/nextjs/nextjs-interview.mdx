@@ -1,0 +1,84 @@
+---
+title: 'Preparing for a Next.js Interview: Questions and Answers with Code Examples'
+date: '2023-11-01'
+tags: ['Next.js']
+draft: false
+summary: Have you ever tried to open a file with '.gz' at the end and got confused? Well, don't worry, we're here to help! We'll show you the easy way to unzip those files with 'gzip -d.' It's like magic - you'll love it! Let's start!...
+---
+
+# Prepare for Next.js Interview
+
+_Title_: A Comprehensive Guide to Preparing for a Next.js Interview: Questions and Answers with Code Examples'
+
+_Author_: Umair Anwar
+
+_Subject_: Next.js
+
+_Language_: English
+
+_Source_: [Next.js Documentation](https://phpidid.blogspot.com/2013/06/extract-sqlgz-file-from-ubuntu-terminal.html)
+
+## Introduction
+Next.js has become a popular framework for building React applications, offering server-side rendering, static site generation, and other powerful features. If you're preparing for a Next.js interview, it's essential to have a strong understanding of its concepts and best practices. In this post, we'll cover a variety of Next.js interview questions and provide detailed answers with code examples to help you succeed in your interview preparation.
+
+## Basics of Next.js
+### What is Next.js, and how does it differ from React?
+Answer: Next.js is a framework built on top of React that simplifies server-side rendering and routing. It provides features like automatic code splitting, static site generation, and easy deployment. React is a JavaScript library for building user interfaces, while Next.js focuses on the full stack, including server-side rendering and routing.
+
+### How do you create a new Next.js application?
+To create a new Next.js application, you can use the following commands:
+```
+npx create-next-app my-next-app
+cd my-next-app
+npm run dev
+```
+This sets up a new Next.js project and starts the development server.
+
+## Routing in Next.js
+### How does routing work in Next.js, and how can you create dynamic routes?
+Next.js provides file-based routing, where files in the pages directory correspond to routes. To create dynamic routes, you can use bracket notation in your file names. For example, a file named `[id].js` will match URLs like `/courses/1`.
+```typescript
+// pages/courses/[id].js
+import { useRouter } from 'next/router';
+
+function Course() {
+  const router = useRouter();
+  const { id } = router.query;
+
+  return <div>Course ID: {id}</div>;
+}
+
+export default Course;
+
+```
+
+### How do you navigate to a different page in Next.js?
+You can use the Link component from the next/link module to navigate between pages. Here's an example:
+```typescript
+import Link from 'next/Link'
+
+<Link href="/about">
+    <a>About Page</a>
+</Link>
+```
+
+## API Routes
+### What are API routes in Next.js, and how do you create them?
+API routes in Next.js are serverless functions that allow you to create custom server APIs. You can create an API route by adding a file in the pages/api directory. For example, creating a pages/api/hello.js file would create an API endpoint accessible at /api/hello.
+```typescript
+// pages/api/hello.js
+
+export default (req, res) => {
+  res.status(200).json({ message: 'Hello, Desi Guru!' });
+}
+```
+
+### How do you make an API request from a Next.js page component?
+You can use the fetch API to make API requests from a Next.js page component. Here's an example:
+```typescript
+async function fetchData() {
+  const response = await fetch('/api/data');
+  const data = await response.json();
+  return data;
+}
+```
