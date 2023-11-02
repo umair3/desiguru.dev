@@ -1,0 +1,59 @@
+---
+title: 'Story of my Full Stack Developer Interview at Voyager Global Mobility'
+date: '2023-11-02'
+tags: ['Next.js', 'Interviews']
+draft: false
+summary: This is story of the technical interview I have taken at a company for the postion of full stack developer. The tech stack included Python, Django and Next.js. This included everything from the very start to the very end. I will share the details of HR interaction, the coding process and some details about the company as well. Let's start!...
+---
+
+# Technical Interview
+
+_Title_: Technical Interview for the role `Full Stack Developer` at `Voyager Global Mobility`
+
+_Author_: Umair Anwar
+
+_Subject_: Interviews
+
+_Language_: English
+
+_Source_: [PHP I Did, Blogspot](https://phpidid.blogspot.com/2013/06/extract-sqlgz-file-from-ubuntu-terminal.html)
+
+## Introduction
+
+## Analytical Questions
+### 1. You have three switches in one room and three bulbs connected to these switches in the second room. You can enter the second room only once. How can you determine which switch correspond to which bulb?
+
+### 2. You have three boxes BB, BR and RR. BB has blue balls, BR has blue and red balls, RR has red balls. Now if the boxes are labeled incorrectly and you can only open one box to take out only one ball, how will you determine the correct labels.
+
+## Coding Problem
+### You have a MathChallenge(num) function which can take a number as an input. You have a coins in a sorted array [1, 5, 7, 9, 11]. It returns the minimum number of coins for sum equal to the input.
+I will write its solution in Typescript. Let's create a file named mathcoin.ts and add the following code.
+```typescript
+function MathChallenge(num: number):number
+{
+    const coins = [1, 5, 7, 9, 11].reverse()
+    let total_coins = 0
+    while(num>0){
+        for(let i=0;i<coins.length; i++){
+            console.log(`${total_coins}=${num}/${coins[i]}`)
+            if(num%coins[i]==0){
+                total_coins+=num/coins[i]
+            }
+            num=num%coins[i]
+        }
+    }
+    return total_coins
+}
+console.log(MathChallenge(33))
+console.log(MathChallenge(27))
+console.log(MathChallenge(16))
+```
+Let's compile this code using the command below
+```
+tsc mathcoin.ts
+```
+As soon as you run the command you will see another file created `mathcoin.js`. To execute the code, run this command;
+```
+node mathcoin.js
+```
+
