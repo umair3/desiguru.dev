@@ -1,0 +1,45 @@
+---
+title: 'useCallback without deps'
+date: '2023-11-05'
+tags: ['React.js']
+draft: false
+summary: In React, the useCallback hook is often used to memoize functions and optimize performance by preventing unnecessary function recreations during component re-renders. When you want to create a memoized function that doesn't depend on any specific values, you can use useCallback with an empty dependency array. This ensures that the function's reference remains stable, even if it's used within the component. Read more....
+---
+
+# useCallback(callback:T, deps:DependencyList):T
+
+_Title_: useCallback without deps for performance
+
+_Author_: Umair Anwar
+
+_Subject_: React.js
+
+_Language_: English
+
+_Source_: [W3SCHOOLS](https://www.w3schools.com/react/react_usecallback.asp)
+
+## Introduction
+In React, the useCallback hook is typically used to memoize functions and prevent unnecessary re-renders of components when the function reference doesn't change. The second argument to useCallback is an array of dependencies that specifies when the callback should be re-created. If you want to create a memoized callback without any dependencies, you can simply omit the second argument or pass an empty array.
+
+Here's an example of how to use useCallback without dependencies:
+```typescript
+import React, { useState, useCallback } from 'react';
+
+function MyComponent() {
+  const [count, setCount] = useState(0);
+
+  // Create a memoized callback without dependencies
+  const increment = useCallback(() => {
+    setCount(count + 1);
+  }, []);
+
+  return (
+    <div>
+      <p>Count: {count}</p>
+      <button onClick={increment}>Increment</button>
+    </div>
+  );
+}
+export default MyComponent;
+```
+In this example, the increment function is memoized using useCallback with an empty dependency array. This means that the increment function will never be recreated during re-renders of MyComponent, even though it references the count state variable. It's useful when you have a function that doesn't rely on any component props or state and you want to ensure its reference remains stable for performance optimization.
