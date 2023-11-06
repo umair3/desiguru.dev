@@ -9,7 +9,7 @@ const siteMetadata = {
   siteUrl: 'https://desiguru.dev',
   siteRepo: 'https://github.com/umair3/desiguru.dev',
   siteLogo: '/static/images/logo.png',
-  socialBanner: '/static/images/twitter-card.png',
+  socialBanner: '/static/images/developer.jpg',
   mastodon: 'https://mastodon.social/@mastodonuser',
   email: 'xiixiiivi@gmail.com',
   github: 'https://github.com/umair3',
