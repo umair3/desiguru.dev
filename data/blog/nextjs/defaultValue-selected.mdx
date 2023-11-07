@@ -1,0 +1,51 @@
+---
+title: 'Warning: Use the `defaultValue` or `value` props on <select> instead of setting `selected` on <option>.'
+date: '2023-11-07'
+tags: ['Next.js']
+draft: false
+summary: Have you ever tried to open a file with '.gz' at the end and got confused? Well, don't worry, we're here to help! We'll show you the easy way to unzip those files with 'gzip -d.' It's like magic - you'll love it! Let's start!...
+---
+
+# How to Use selected in Next.js/React.js?
+
+_Title_: Use the `defaultValue` or `value` props on `<select>` instead of setting `selected` on `<option>`.
+
+_Author_: Umair Anwar
+
+_Subject_: Javascript
+
+_Language_: English
+
+_Source_: [StackOverflow](https://stackoverflow.com/questions/44786669/warning-use-the-defaultvalue-or-value-props-on-select-instead-of-setting)
+
+## Introduction
+The warning message you've encountered, 
+> <span style={{color: 'red'}}>Warning: Use the defaultValue or value props on `<select>` instead of setting selected on `<option>`</span>
+
+is typically related to how you're working with HTML `<select>` elements in a web development context, particularly in the context of React or other JavaScript frameworks.
+
+This warning advises you to set the selected option for a `<select>` element using the defaultValue or value props on the `<select>` itself, rather than setting the selected attribute on the individual `<option>` elements within the `<select>`. Here's how you should use it:
+
+### Using defaultValue (for uncontrolled components):
+```typescript
+<select defaultValue="option2">
+  <option value="option1">Option 1</option>
+  <option value="option2">Option 2</option>
+  <option value="option3">Option 3</option>
+</select>
+```
+
+### Using value (for controlled components):
+```typescript
+const [selectedOption, setSelectedOption] = useState("option2");
+<select value={selectedOption} onChange={(e) => setSelectedOption(e.target.value)}>
+  <option value="option1">Option 1</option>
+  <option value="option2">Option 2</option>
+  <option value="option3">Option 3</option>
+</select>
+```
+
+In the uncontrolled component example, you can use the defaultValue prop to set the initially selected option. In the controlled component example, you are using state to manage the selected option and update it when the user makes a selection.
+
+The warning is often associated with React or other similar JavaScript frameworks because these libraries encourage a more declarative approach to managing the state and rendering of components. By using defaultValue or value, you ensure that the component's state and the rendered DOM are in sync, preventing unexpected behavior.
+
